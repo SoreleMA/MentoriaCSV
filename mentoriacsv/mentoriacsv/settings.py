@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 from decouple import config
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -136,3 +137,12 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 APP_NAME = config('APP_NAME')
+
+# Definir la ruta al archivo settings.py de Django
+bind = '0.0.0.0:8000'
+workers = 3
+chdir = '/path/mentoriacsv'
+
+
+pythopath = '/path/mentoriacsv/venv/bin/python3'
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'mentoriacsv.settings')
